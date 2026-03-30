@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grampanchayat Sheel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+let currentLang = 'en';
+let currentSection = 'home';
+
+function showSection(id) {
+  currentSection = id;
+  document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+  document.querySelectorAll(`.${id}.${currentLang}`).forEach(s => s.classList.remove('hidden'));
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === 'en' ? 'mr' : 'en';
+
+  // NAV SWITCH
+  document.getElementById('nav-en').classList.toggle('hidden');
+  document.getElementById('nav-mr').classList.toggle('hidden');
+
+  // HEADER + ALL TEXT SWITCH
+  document.querySelectorAll('.lang').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll(`.lang.${currentLang}`).forEach(el => el.classList.remove('hidden'));
+
+  // SECTION FIX
+  showSection(currentSection);
+}
+
+function toggleDoc(id) {
+  document.querySelectorAll('.doc-content').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll(`.${id}.${currentLang}`).forEach(el => el.classList.remove('hidden'));
+}
+
+function toggleScheme(id) {
+  document.querySelectorAll('.scheme-content').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll(`.${id}.${currentLang}`).forEach(el => el.classList.remove('hidden'));
+}
+
+</script>
+</head>
+
+<body class="bg-gray-100 font-sans text-gray-800">
+
+<header class="bg-orange-600 text-white p-4 text-center">
+
+<!-- ENGLISH -->
+<div class="lang en">
+  <h1 class="text-3xl font-bold">Grampanchayat Sheel</h1>
+  <p class="mt-1 text-lg">Mukhyamantri Samruddha Panchayat Raj Abhiyan</p>
+</div>
+
+<!-- MARATHI -->
+<div class="lang mr hidden">
+  <h1 class="text-3xl font-bold">ग्रामपंचायत शील</h1>
+  <p class="mt-1 text-lg">मुख्यमंत्री समृद्ध पंचायत राज अभियान</p>
+</div>
+
+<!-- BUTTON -->
+<button onclick="toggleLanguage()" 
+class="mt-3 bg-white text-orange-600 px-4 py-1 rounded font-semibold">
+मराठी / English
+</button>
+
+<!-- LEADERS -->
+<div class="flex justify-center mt-6 gap-12 flex-wrap">
+
+  <!-- PERSON 1 -->
+  <div class="text-center">
+    <img src="modi.jpg" class="w-32 h-32 rounded-full border-4 border-white mx-auto">
+    
+    <p class="mt-2 font-bold lang en">Sunetra Tai Pawar</p>
+    <p class="mt-2 font-bold lang mr hidden">सुनेत्रा ताई पवार</p>
+  </div>
+
+  <!-- PERSON 2 -->
+  <div class="text-center">
+    <img src="fadnavis.jpg" class="w-32 h-32 rounded-full border-4 border-white mx-auto">
+    
+    <p class="mt-2 font-bold lang en">Devendra Fadnavis</p>
+    <p class="mt-2 font-bold lang mr hidden">देवेंद्र फडणवीस</p>
+  </div>
+
+  <!-- PERSON 3 -->
+  <div class="text-center">
+    <img src="shinde.jpg" class="w-32 h-32 rounded-full border-4 border-white mx-auto">
+    
+    <p class="mt-2 font-bold lang en">Eknath Shinde</p>
+    <p class="mt-2 font-bold lang mr hidden">एकनाथ शिंदे</p>
+  </div>
+
+</div>
+
+</header>
+
+<nav id="nav-en" class="bg-white shadow-md p-3 flex justify-center gap-4 flex-wrap">
+
+<button onclick="showSection('home')" class="nav-btn">Home</button>
+<button onclick="showSection('about')" class="nav-btn">About</button>
+<button onclick="showSection('members')" class="nav-btn">Members</button>
+<button onclick="showSection('schemes')" class="nav-btn">Schemes</button>
+<button onclick="showSection('documents')" class="nav-btn">Documents</button>
+<button onclick="showSection('gallery')" class="nav-btn">Gallery</button>
+<button onclick="showSection('contact')" class="nav-btn">Contact</button>
+
+</nav>
+
+<nav id="nav-mr" class="hidden bg-white shadow-md p-3 flex justify-center gap-4 flex-wrap">
+
+<button onclick="showSection('home')" class="nav-btn">मुख्यपृष्ठ</button>
+<button onclick="showSection('about')" class="nav-btn">माहिती</button>
+<button onclick="showSection('members')" class="nav-btn">सदस्य</button>
+<button onclick="showSection('schemes')" class="nav-btn">योजना</button>
+<button onclick="showSection('documents')" class="nav-btn">कागदपत्रे</button>
+<button onclick="showSection('gallery')" class="nav-btn">छायाचित्र</button>
+<button onclick="showSection('contact')" class="nav-btn">संपर्क</button>
+
+</nav>
+
+<style>
+.nav-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #f97316;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.nav-btn:hover {
+  background: #ea580c;
+  transform: scale(1.05);
+}
+</style>
+
+<section class="section home en p-10 text-center bg-white shadow-inner">
+
+
+
+<h2 class="text-4xl font-bold mb-4 text-orange-600">
+  Welcome to Grampanchayat Sheel
+</h2>
+
+<p class="mb-6 text-lg text-gray-600">
+  Serving the village with transparency, development and dedication
+</p>
+
+<div class="w-full max-w-5xl mx-auto overflow-hidden rounded-2xl shadow-2xl">
+  <iframe 
+    src="https://player.vimeo.com/video/1138506457"
+    class="w-full h-[300px] md:h-[500px]"
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+</div>
+
+</section>
+
+<section class="section home mr hidden p-10 text-center bg-white shadow-inner">
+
+<h2 class="text-4xl font-bold mb-4 text-orange-600">
+  ग्रामपंचायत शील मध्ये आपले स्वागत आहे
+</h2>
+
+<p class="mb-6 text-lg text-gray-600">
+  पारदर्शकता, विकास आणि समर्पणासाठी कार्यरत
+</p>
+
+<div class="w-full max-w-5xl mx-auto overflow-hidden rounded-2xl shadow-2xl">
+  <iframe 
+    src="https://player.vimeo.com/video/1138506457"
+    class="w-full h-[300px] md:h-[500px]"
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="section about en hidden p-6 bg-white">
+
+<h2 class="text-2xl font-bold mb-4 text-center">
+  About Gram Panchayat Sheel
+</h2>
+
+<!-- MAP IMAGE -->
+<div class="flex justify-center mb-6">
+  <img src="map.jpg" 
+       class="w-full max-w-4xl rounded shadow-lg"
+       alt="Gram Panchayat Sheel Map">
+</div>
+
+<!-- TEXT -->
+<p class="mb-3">
+Gram Panchayat Sheel (Post: Kinhavali, Taluka: Shahapur, District: Thane) is an active and progressive local governing body committed to rural development, basic infrastructure, and public participation.
+</p>
+
+<p class="mb-3">
+The total population under the Gram Panchayat is approximately <b>1883</b>, out of which <b>911</b> belong to Sheel and <b>972</b> to Vitthalgaon. Around <b>412 families</b> reside in the area with a literacy rate of nearly <b>70%</b>.
+</p>
+
+<p class="mb-3">
+The total geographical area of the Gram Panchayat is about <b>514.84 hectares</b>. The primary occupation of the villagers is <b>paddy farming</b>, along with <b>dairy farming</b> as an important source of livelihood.
+</p>
+
+<p class="mb-3">
+The Gram Panchayat jurisdiction includes the revenue villages of <b>Sheel and Vitthalgaon</b>.
+</p>
+
+<p>
+Basic facilities available include Gram Panchayat office, Zilla Parishad school, secondary school, Anganwadi centers, health sub-center, veterinary clinic, water supply schemes, waste management system, internet facilities, and village ponds.
+</p>
+
+</section>
+
+<section class="section about mr hidden p-6 bg-white">
+
+<h2 class="text-2xl font-bold mb-4 text-center">
+  ग्रामपंचायत शील बद्दल
+</h2>
+
+<!-- MAP IMAGE -->
+<div class="flex justify-center mb-6">
+  <img src="map.jpg" 
+       class="w-full max-w-4xl rounded shadow-lg"
+       alt="ग्रामपंचायत शील नकाशा">
+</div>
+
+<!-- TEXT -->
+<p class="mb-3">
+ग्रामपंचायत शीळ (मु.पो. किन्हवली, ता. शहापूर, जि. ठाणे) ही एक सक्रिय व प्रगत ग्रामपंचायत असून ग्रामीण विकास, मूलभूत सुविधा आणि लोकसहभाग यावर भर देत कार्यरत आहे.
+</p>
+
+<p class="mb-3">
+ग्रामपंचायतीची एकूण लोकसंख्या सुमारे <b>1883</b> असून त्यापैकी शीलची लोकसंख्या <b>911</b> व विठ्ठलगावची <b>972</b> आहे.
+</p>
+
+<p class="mb-3">
+ग्रामपंचायत शीळचे एकूण क्षेत्रफळ सुमारे <b>514.84 हेक्टर</b> आहे.
+</p>
+
+<p class="mb-3">
+ग्रामपंचायत कार्यक्षेत्रात महसूल गावे म्हणून <b>शीळ व विठ्ठलगाव</b> यांचा समावेश होतो.
+</p>
+
+<p>
+ग्रामपंचायत अंतर्गत विविध सुविधा उपलब्ध आहेत व त्यांची नियमित देखभाल केली जाते.
+</p>
+
+</section>
+
+<!-- MEMBERS -->
+<section class="section members en hidden p-8 text-center bg-gradient-to-br from-orange-100 to-orange-200">
+
+<h2 class="text-3xl font-bold mb-10">Our Leadership</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+  <!-- CARD -->
+  <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 hover:shadow-2xl transition duration-300 relative overflow-hidden border-t-4 border-orange-500">
+    
+    <!-- Decorative Circle -->
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-300 rounded-full opacity-30"></div>
+
+    <img src="sarpanch.jpg" class="w-28 h-28 mx-auto rounded-full border-4 border-orange-500 shadow-lg">
+
+    <h3 class="mt-4 text-xl font-bold">Mr. Dinesh Eknath Vates</h3>
+    <p class="text-orange-600 font-semibold">Sarpanch</p>
+
+    <p class="mt-2 text-gray-700">📞 7218664103</p>
+
+  </div>
+
+  <!-- CARD -->
+  <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition duration-300 relative overflow-hidden">
+    
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-300 rounded-full opacity-30"></div>
+
+    <img src="deputy sarpanch.jpg" class="w-28 h-28 mx-auto rounded-full border-4 border-orange-500 shadow-lg">
+
+    <h3 class="mt-4 text-xl font-bold">Mr. Somnath Hari Bangar</h3>
+    <p class="text-orange-600 font-semibold">Deputy Sarpanch</p>
+
+    <p class="mt-2 text-gray-700">📞 8308136903</p>
+
+  </div>
+
+  <!-- CARD -->
+  <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition duration-300 relative overflow-hidden">
+    
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-300 rounded-full opacity-30"></div>
+
+    <img src="gramsevika.jpg" class="w-28 h-28 mx-auto rounded-full border-4 border-orange-500 shadow-lg">
+
+    <h3 class="mt-4 text-xl font-bold">Mrs. Sarita Sudam Farde</h3>
+    <p class="text-orange-600 font-semibold">Grampanchayat Officer</p>
+
+    <p class="mt-2 text-gray-700">📞 9226205311</p>
+
+  </div>
+
+</div>
+
+</section>
+
+<section class="section members mr hidden p-8 text-center bg-gradient-to-br from-orange-100 to-orange-200">
+
+<h2 class="text-3xl font-bold mb-10">सदस्य</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+  <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition duration-300 relative overflow-hidden">
+    
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-300 rounded-full opacity-30"></div>
+
+    <img src="sarpanch.jpg" class="w-28 h-28 mx-auto rounded-full border-4 border-orange-500 shadow-lg">
+
+    <h3 class="mt-4 text-xl font-bold">श्री दिनेश एकनाथ वातेस</h3>
+    <p class="text-orange-600 font-semibold">सरपंच</p>
+
+    <p class="mt-2 text-gray-700">📞 7218664103</p>
+
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition duration-300 relative overflow-hidden">
+    
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-300 rounded-full opacity-30"></div>
+
+    <img src="deputy sarpanch.jpg" class="w-28 h-28 mx-auto rounded-full border-4 border-orange-500 shadow-lg">
+
+    <h3 class="mt-4 text-xl font-bold">श्री सोमनाथ हरी बांगर</h3>
+    <p class="text-orange-600 font-semibold">उपसरपंच</p>
+
+    <p class="mt-2 text-gray-700">📞 8308136903</p>
+
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition duration-300 relative overflow-hidden">
+    
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-300 rounded-full opacity-30"></div>
+
+    <img src="gramsevika.jpg" class="w-28 h-28 mx-auto rounded-full border-4 border-orange-500 shadow-lg">
+
+    <h3 class="mt-4 text-xl font-bold">सौ. सरिता सुदाम फर्डे</h3>
+    <p class="text-orange-600 font-semibold">ग्रामपंचायत अधिकारी</p>
+
+    <p class="mt-2 text-gray-700">📞 9226205311</p>
+
+  </div>
+
+</div>
+
+</section>
+
+<!-- SCHEMES (TEXT ONLY) -->
+<section class="section schemes en hidden p-6">
+
+<div class="space-y-3">
+
+<button onclick="toggleScheme('scheme1')" class="block w-full bg-orange-300 p-3 rounded">Farm Loan Waiver Camp</button>
+<div class="scheme-content scheme1 en hidden p-3 bg-orange-200 rounded">
+This camp is organized to provide farmers with loan waiver benefits and guidance about government schemes. Small and marginal farmers with valid land documents are eligible. The service is free and requires Aadhaar, bank details, and land records.
+</div>
+
+<button onclick="toggleScheme('scheme2')" class="block w-full bg-orange-300 p-3 rounded">Women SHG Training</button>
+<div class="scheme-content scheme2 en hidden p-3 bg-orange-200 rounded">
+This program empowers women through Self Help Groups by providing training in savings and small businesses. Women above 18 years are eligible. Training is free and conducted by government trainers.
+</div>
+
+<button onclick="toggleScheme('scheme3')" class="block w-full bg-orange-300 p-3 rounded">Environmental Awareness</button>
+<div class="scheme-content scheme3 en hidden p-3 bg-orange-200 rounded">
+This initiative spreads awareness about cleanliness and tree plantation. All villagers can participate in rallies and plantation drives.
+</div>
+
+<button onclick="toggleScheme('scheme4')" class="block w-full bg-orange-300 p-3 rounded">Senior Citizen Program</button>
+<div class="scheme-content scheme4 en hidden p-3 bg-orange-200 rounded">
+This program honors senior citizens aged 60+. It includes felicitation and health checkups. Free for all eligible citizens.
+</div>
+
+<button onclick="toggleScheme('scheme5')" class="block w-full bg-orange-300 p-3 rounded">Gram Sabha Meetings</button>
+<div class="scheme-content scheme5 en hidden p-3 bg-orange-200 rounded">
+Village meetings to discuss development plans. All registered voters can participate. No fee.
+</div>
+
+<button onclick="toggleScheme('scheme6')" class="block w-full bg-orange-300 p-3 rounded">Health & Vaccination</button>
+<div class="scheme-content scheme6 en hidden p-3 bg-orange-200 rounded">
+Provides free health checkups and vaccination services by government staff. All villagers are eligible.
+</div>
+
+</div>
+</section>
+
+<section class="section schemes mr hidden p-6">
+
+<div class="space-y-3">
+
+<button onclick="toggleScheme('scheme1')" class="block w-full bg-orange-300 p-3 rounded">शेतकरी कर्ज माफी</button>
+<div class="scheme-content scheme1 mr hidden p-3 bg-orange-200 rounded">
+शेतकऱ्यांना कर्जमाफी व शासकीय योजनांची माहिती दिली जाते. लघु व सीमांत शेतकरी पात्र आहेत. सेवा मोफत आहे.
+</div>
+
+<button onclick="toggleScheme('scheme2')" class="block w-full bg-orange-300 p-3 rounded">महिला बचत गट</button>
+<div class="scheme-content scheme2 mr hidden p-3 bg-orange-200 rounded">
+महिलांसाठी बचत गट व प्रशिक्षण कार्यक्रम. १८ वर्षांवरील महिला पात्र आहेत. प्रशिक्षण मोफत आहे.
+</div>
+
+<button onclick="toggleScheme('scheme3')" class="block w-full bg-orange-300 p-3 rounded">पर्यावरण जनजागृती</button>
+<div class="scheme-content scheme3 mr hidden p-3 bg-orange-200 rounded">
+स्वच्छता व वृक्षारोपण कार्यक्रम. सर्व नागरिक सहभागी होऊ शकतात.
+</div>
+
+<button onclick="toggleScheme('scheme4')" class="block w-full bg-orange-300 p-3 rounded">ज्येष्ठ नागरिक</button>
+<div class="scheme-content scheme4 mr hidden p-3 bg-orange-200 rounded">
+६० वर्षांवरील नागरिकांचा सन्मान. कार्यक्रम मोफत आहे.
+</div>
+
+<button onclick="toggleScheme('scheme5')" class="block w-full bg-orange-300 p-3 rounded">ग्रामसभा</button>
+<div class="scheme-content scheme5 mr hidden p-3 bg-orange-200 rounded">
+ग्रामविकासासाठी बैठक. सर्व मतदार सहभागी होऊ शकतात.
+</div>
+
+<button onclick="toggleScheme('scheme6')" class="block w-full bg-orange-300 p-3 rounded">आरोग्य तपासणी</button>
+<div class="scheme-content scheme6 mr hidden p-3 bg-orange-200 rounded">
+मोफत आरोग्य तपासणी व लसीकरण सेवा उपलब्ध.
+</div>
+
+</div>
+</section>
+
+<!-- DOCUMENTS (ENGLISH) -->
+<section class="section documents en hidden p-6">
+
+<h2 class="text-xl font-bold mb-4">Documents</h2>
+
+<div class="space-y-3">
+
+<button onclick="toggleDoc('doc1')" class="block w-full bg-orange-300 p-3 rounded">Income Certificate</button>
+<div class="doc-content doc1 en hidden p-3 bg-orange-200 rounded">
+<p><b>Required Documents:</b> Aadhaar Card, Ration Card, Passport Size Photographs (2), Residence Proof (Electricity Bill / Water Bill), Income Proof (Salary Slip / Income Certificate from Employer), Bank Passbook Copy.</p>
+<p><b>Application Process:</b> Submit application form at Gram Panchayat office or apply online through Aaple Sarkar portal. Verification will be done by local authority.</p>
+<p><b>Download Form:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>Guidance:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc2')" class="block w-full bg-orange-300 p-3 rounded">Residence Certificate</button>
+<div class="doc-content doc2 en hidden p-3 bg-orange-200 rounded">
+<p><b>Required Documents:</b> Aadhaar Card, Passport Size Photos, Electricity Bill / Water Bill, House Tax Receipt, Ration Card.</p>
+<p><b>Application Process:</b> Apply through Panchayat office or online. Address verification will be conducted.</p>
+<p><b>Download Form:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>Guidance:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc3')" class="block w-full bg-orange-300 p-3 rounded">No Dues Certificate</button>
+<div class="doc-content doc3 en hidden p-3 bg-orange-200 rounded">
+<p><b>Required Documents:</b> Property Tax Receipts, Water Bill Receipts, Aadhaar Card, Passport Photos, Application Form.</p>
+<p><b>Application Process:</b> Submit request to Gram Panchayat. Verification of dues will be done before issuing certificate.</p>
+<p><b>Download Form:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>Guidance:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc4')" class="block w-full bg-orange-300 p-3 rounded">Property Tax Record Extract</button>
+<div class="doc-content doc4 en hidden p-3 bg-orange-200 rounded">
+<p><b>Required Documents:</b> Property Number, Tax Receipt, Aadhaar Card, Application Form, Passport Photos.</p>
+<p><b>Application Process:</b> Visit Panchayat office or apply online. Record will be issued after verification.</p>
+<p><b>Download Form:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>Guidance:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc5')" class="block w-full bg-orange-300 p-3 rounded">Birth/Death Non-Availability Certificate</button>
+<div class="doc-content doc5 en hidden p-3 bg-orange-200 rounded">
+<p><b>Required Documents:</b> Affidavit, Aadhaar Card, Hospital Records (if any), Passport Photos, Application Form.</p>
+<p><b>Application Process:</b> Apply through Panchayat office. Record verification will be done before issuing certificate.</p>
+<p><b>Download Form:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>Guidance:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc6')" class="block w-full bg-orange-300 p-3 rounded">MGNREGA Worker Registration</button>
+<div class="doc-content doc6 en hidden p-3 bg-orange-200 rounded">
+<p><b>Required Documents:</b> Aadhaar Card, Bank Account Details, Passport Photos, Residence Proof, Job Card (if available).</p>
+<p><b>Application Process:</b> Register at Gram Panchayat office. Job card will be issued after verification.</p>
+<p><b>Download Form:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>Guidance note:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc7')" class="block w-full bg-orange-300 p-3 rounded">Rural Housing Scheme Application Form</button>
+<div class="doc-content doc7 en hidden p-3 bg-orange-200 rounded">
+<p><b>Required Documents:</b> Aadhaar Card,7/12 Extract or Property Proof,BPL Certificate,Caste Certificate (if applicable),Passport Photo,Bank Passbook.</p>
+<p><b>Application Process:</b> Collect form from Grampanchayat / Panchayat Samiti office,Fill required details and attach documents,Submit to Grampanchayat officer / Block Office,Verification by officials,Funds credited directly to beneficiary’s bank account.</p>
+<p><b>Eligibility Criteria:</b>Resident of a rural area,No existing pucca house,Priority to BPL families,Name must appear in SECC or PMAY list.</p>
+<p><b>Download Form:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>Guidance:</b> Check eligibility on PMAY-G portal before applying,Funds released in stages as per construction progress
+,Contact GramPanchayat Adhikari for updates</p>
+</div>
+
+
+</div>
+</section>
+
+
+<!-- DOCUMENTS (MARATHI) -->
+<section class="section documents mr hidden p-6">
+
+<h2 class="text-xl font-bold mb-4">दस्तऐवज</h2>
+
+<div class="space-y-3">
+
+<button onclick="toggleDoc('doc1')" class="block w-full bg-orange-300 p-3 rounded">दारिद्र्य रेषा दाखला</button>
+<div class="doc-content doc1 mr hidden p-3 bg-orange-200 rounded">
+<p><b>आवश्यक कागदपत्रे:</b> आधार कार्ड, रेशन कार्ड, २ पासपोर्ट फोटो, वीज बिल / पाणी बिल (पत्ता पुरावा), उत्पन्न दाखला, बँक पासबुक.</p>
+<p><b>प्रक्रिया:</b> ग्रामपंचायत कार्यालयात किंवा ऑनलाइन अर्ज करा. पडताळणी केल्यानंतर दाखला दिला जातो.</p>
+<p><b>फॉर्म डाउनलोड:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>मार्गदर्शन:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc2')" class="block w-full bg-orange-300 p-3 rounded">हयाती दाखला</button>
+<div class="doc-content doc2 mr hidden p-3 bg-orange-200 rounded">
+<p><b>आवश्यक कागदपत्रे:</b> आधार कार्ड, फोटो, वीज बिल / पाणी बिल, रेशन कार्ड.</p>
+<p><b>प्रक्रिया:</b> ग्रामपंचायत कार्यालयात अर्ज करून पडताळणी केली जाते.</p>
+<p><b>फॉर्म डाउनलोड:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>मार्गदर्शन:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc3')" class="block w-full bg-orange-300 p-3 rounded">येणे नसलेचा दाखला</button>
+<div class="doc-content doc3 mr hidden p-3 bg-orange-200 rounded">
+<p><b>आवश्यक कागदपत्रे:</b> कर पावत्या, आधार कार्ड, फोटो, अर्ज.</p>
+<p><b>प्रक्रिया:</b> ग्रामपंचायत कार्यालयातून अर्ज सादर करा व पडताळणी केली जाते.</p>
+<p><b>फॉर्म डाउनलोड:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>मार्गदर्शन:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc4')" class="block w-full bg-orange-300 p-3 rounded">मालमत्ता कर उतारा</button>
+<div class="doc-content doc4 mr hidden p-3 bg-orange-200 rounded">
+<p><b>आवश्यक कागदपत्रे:</b> मालमत्ता क्रमांक, कर पावती, आधार कार्ड, फोटो.</p>
+<p><b>प्रक्रिया:</b> ग्रामपंचायत कार्यालयात अर्ज करून उतारा मिळतो.</p>
+<p><b>फॉर्म डाउनलोड:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>मार्गदर्शन:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc5')" class="block w-full bg-orange-300 p-3 rounded">जन्म/मृत्यू नोंद अनुपलब्ध</button>
+<div class="doc-content doc5 mr hidden p-3 bg-orange-200 rounded">
+<p><b>आवश्यक कागदपत्रे:</b> प्रतिज्ञापत्र, आधार कार्ड, फोटो, रुग्णालय कागदपत्रे (असल्यास).</p>
+<p><b>प्रक्रिया:</b> ग्रामपंचायत कार्यालयात अर्ज करून पडताळणी केली जाते.</p>
+<p><b>फॉर्म डाउनलोड:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>मार्गदर्शन:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc6')" class="block w-full bg-orange-300 p-3 rounded">मनरेगा नोंदणी</button>
+<div class="doc-content doc6 mr hidden p-3 bg-orange-200 rounded">
+<p><b>आवश्यक कागदपत्रे:</b> आधार कार्ड, बँक खाते तपशील, फोटो, पत्ता पुरावा.</p>
+<p><b>प्रक्रिया:</b> ग्रामपंचायत कार्यालयात नोंदणी करून जॉब कार्ड मिळते.</p>
+<p><b>फॉर्म डाउनलोड:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>मार्गदर्शन:</b> https://jeevanpramaan.gov.in</p>
+</div>
+
+<button onclick="toggleDoc('doc7')" class="block w-full bg-orange-300 p-3 rounded">घरकुल अर्ज</button>
+<div class="doc-content doc7 mr hidden p-3 bg-orange-200 rounded">
+<p><b>Required Documents:</b> आधार कार्ड, ७/१२ उतारा किंवा मालमत्तेचा पुरावा, बीपीएल प्रमाणपत्र, जात प्रमाणपत्र (लागू असल्यास), पासपोर्ट फोटो, बँक पासबुक.</p>
+<p><b>Eligibility Criteria:</b>ग्रामीण भागातील रहिवासी,पक्के घर अस्तित्वात नाही,बीपीएल कुटुंबांना प्राधान्य,नाव एसईसीसी किंवा पीएमएवाय यादीत असले पाहिजे.</p>
+<p><b>Application Process:</b> ग्रामपंचायत / पंचायत समिती कार्यालयातून अर्ज घ्या, आवश्यक तपशील भरा आणि कागदपत्रे जोडा, ग्रामपंचायत अधिकारी / ब्लॉक कार्यालयात सादर करा, अधिकाऱ्यांकडून पडताळणी केली जाईल, निधी थेट लाभार्थ्याच्या बँक खात्यात जमा केला जाईल.</p>
+<p><b>Download Form:</b> https://aaplesarkar.mahaonline.gov.in</p>
+<p><b>Guidance:</b> अर्ज करण्यापूर्वी PMAY-G पोर्टलवर पात्रता तपासा, बांधकामाच्या प्रगतीनुसार निधी टप्प्याटप्प्याने दिला जातो
+नवीन माहितीसाठी ग्रामपंचायत अधिकाऱ्यांशी संपर्क साधा</p>
+
+
+</div>
+</section>
+
+<!-- GALLERY -->
+
+<!-- ENGLISH -->
+<section class="section gallery en hidden p-6 text-center">
+
+<h2 class="text-xl font-bold mb-4">PM Awas Yojana</h2>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+<img src="house1.jpg" class="rounded shadow">
+<img src="house2.jpg" class="rounded shadow">
+<img src="house3.jpg" class="rounded shadow">
+<img src="house4.jpg" class="rounded shadow">
+<img src="house5.jpg" class="rounded shadow">
+</div>
+
+<h2 class="text-xl font-bold mb-4">Grampanchayat Sheel</h2>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+<img src="gp1.jpg" class="rounded shadow">
+<img src="gp2.jpg" class="rounded shadow">
+<img src="gp3.jpg" class="rounded shadow">
+<img src="gp4.jpg" class="rounded shadow">
+<img src="gp5.jpg" class="rounded shadow">
+<img src="gp6.jpg" class="rounded shadow">
+<img src="gp7.jpg" class="rounded shadow">
+<img src="gp8.jpg" class="rounded shadow">
+<img src="gp9.jpg" class="rounded shadow">
+</div>
+
+</section>
+
+
+<!-- MARATHI -->
+<section class="section gallery mr hidden p-6 text-center">
+
+<h2 class="text-xl font-bold mb-4">प्रधानमंत्री आवास योजना</h2>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+<img src="house1.jpg" class="rounded shadow">
+<img src="house2.jpg" class="rounded shadow">
+<img src="house3.jpg" class="rounded shadow">
+<img src="house4.jpg" class="rounded shadow">
+<img src="house5.jpg" class="rounded shadow">
+</div>
+
+<h2 class="text-xl font-bold mb-4">ग्रामपंचायत शील</h2>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+<img src="gp1.jpg" class="rounded shadow">
+<img src="gp2.jpg" class="rounded shadow">
+<img src="gp3.jpg" class="rounded shadow">
+<img src="gp4.jpg" class="rounded shadow">
+<img src="gp5.jpg" class="rounded shadow">
+<img src="gp6.jpg" class="rounded shadow">
+<img src="gp7.jpg" class="rounded shadow">
+<img src="gp8.jpg" class="rounded shadow">
+<img src="gp9.jpg" class="rounded shadow">
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="section contact en hidden p-10 text-center bg-white">
+
+<h2 class="text-3xl font-bold mb-8 text-orange-600">Contact Details</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+<h3 class="font-bold text-xl">Sarpanch</h3>
+<p class="mt-2">Mr. Dinesh Eknath Vates</p>
+<p class="text-orange-700 font-semibold mt-2">📞 7218664103</p>
+</div>
+
+<div class="bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+<h3 class="font-bold text-xl">Deputy Sarpanch</h3>
+<p class="mt-2">Mr. Somnath Hari Bangar</p>
+<p class="text-orange-700 font-semibold mt-2">📞 8308136903</p>
+</div>
+
+<div class="bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+<h3 class="font-bold text-xl">Grampanchayat Officer</h3>
+<p class="mt-2">Mrs. Sarita Sudam Farde</p>
+<p class="text-orange-700 font-semibold mt-2">📞 9226205311</p>
+</div>
+
+</div>
+
+<div class="mt-10 text-lg font-semibold text-gray-700">
+📍 Address: Grampanchayat Sheel, Shahapur, Thane - 421403
+ <p>📧 Email: 
+  <a href="mailto:gpshil01@gmail.com" class="text-orange-600 underline">
+    gpshil01@gmail.com
+  </a>
+</p>
+
+</section>
+
+
+<!-- CONTACT (MARATHI) -->
+<section class="section contact mr p-10 text-center bg-white min-h-[70vh]">
+
+<h2 class="text-3xl font-bold mb-8 text-orange-600">संपर्क माहिती</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-2xl shadow-lg hover:scale-105 transition text-gray-900">
+<h3 class="font-bold text-xl text-black">सरपंच</h3>
+<p class="mt-2 text-black">श्री दिनेश एकनाथ वातेस</p>
+<p class="text-orange-700 font-semibold mt-2">📞 7218664103</p>
+</div>
+
+<div class="bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-2xl shadow-lg hover:scale-105 transition text-gray-900">
+<h3 class="font-bold text-xl text-black">उपसरपंच</h3>
+<p class="mt-2 text-black">श्री सोमनाथ हरी बांगर</p>
+<p class="text-orange-700 font-semibold mt-2">📞 8308136903</p>
+</div>
+
+<div class="bg-gradient-to-br from-orange-100 to-orange-200 p-6 rounded-2xl shadow-lg hover:scale-105 transition text-gray-900">
+<h3 class="font-bold text-xl text-black">ग्रामपंचायत अधिकारी</h3>
+<p class="mt-2 text-black">सौ. सरिता सुदाम फर्डे</p>
+<p class="text-orange-700 font-semibold mt-2">📞 9226205311</p>
+</div>
+
+</div> 
+
+<div class="mt-10 text-lg font-semibold text-gray-700 space-y-2">
+  <p>📍 पत्ता: ग्रामपंचायत शील, शहापूर, ठाणे - 421403</p>
+  <p>📧 ईमेल: gpshil01@gmail.com</p>
+</div>
+
+</section>
+
+<footer class="bg-gray-900 text-white text-center p-6 mt-10">
+
+<p class="text-lg font-semibold">© 2026 Grampanchayat Sheel</p>
+
+<p class="text-sm mt-2 text-gray-400">
+Designed for Digital Village Development
+</p>
+
+</footer>
+
+<script>showSection('home');</script>
+
+</body>
+</html>
